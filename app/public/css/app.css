@@ -1,517 +1,141 @@
+:root{
+    --black: #191A23;
+    --green: #B9FF66;
+    --grey: #F3F3F3;
+    --white: #FFFFFF;
+}
+
 html {
     box-sizing: border-box;
-    font-size: 62.5%; 
-}
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-body {
-    background-color: #100E17;
-    font-family: 'Rubik', sans-serif;
-    font-size: 1.6rem;
-}
-p {
-    font-size: 1.6rem;
-}
-/** Globales **/
-h1, h2, h3  {
-    color: #ffffff;
-    margin: 0;
-}
-h1 {
-    font-weight: 900;
-    font-size: 6rem;
-}
-h2 {
-    font-weight: 700;
-    font-size: 4rem;
-}
-h3 {
-    font-size: 2.8rem;
-}
-.contenedor {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-.separador {
-    padding-bottom: 2rem;
-    padding-top:2rem;
-    border-bottom: 1px solid #272727;
-}
-/** Botones **/
-.btn {
-    font-size: 1.8rem;
-    padding: 1.4rem 6rem;
-    border-radius: .6rem;
-    color: white;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: background-color .3s ease-out;
-    display: block;
-    border:none;
-}
-.btn-verde {
-    background-color: #00C897;
-}
-.btn-verde:hover {
-    background-color: rgb(10, 155, 119);
 }
 
-.btn-azul {
-    background-color: #00A4B6;
-}
-.btn-azul:hover {
-    background-color: rgb(3, 133, 148);
-}
-
-.btn-amarillo {
-    background-color: #F6B15F;
-}
-.btn-rojo {
-    background-color: #C80045;
+h1{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 77px;
 }
 
-.editar-btn {
-    margin-top: 4rem;
-}
-.editar-btn {
-    flex: 0 0 auto;
-    text-align: center;
-}
-
-/** Header **/
-.tagline {
-    font-size: 2.2rem;
-    color: #ffffff;
-    margin: 2rem 0 3rem 0;
+h2{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 51px;
 }
 
-
-.site-header {
-    min-height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    margin-bottom: 5rem;
+h3{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 38px;
 }
 
-.nombre-sitio {
-    display: flex;
-    justify-content: space-between;
-}
-.nombre-sitio a {
-    color: white;
-    text-decoration: none;
-}
-.buscador {
-    padding-top: 1rem;
-    display: flex;
-    justify-content: flex-end;
-    flex: 1;
-}
-.buscador form {
-    flex:1;
-    position: relative;
-}
-@media (min-width: 768px) {
-    .buscador form {
-        flex: 0 0 40%;
-    }
-}
-.buscador input[type="text"] {
-    background-color: rgba(255,255,255,.1);
-    width: 100%;
-    border: none;
-    padding: .5rem 4rem .5rem 2rem;
-    height: 5rem;
-    border-radius: 1rem;
-    color: white;
-    font-size: 1.2rem;
-}
-.buscador input[type="submit"] {
-    display: block;
-    text-indent: -9999px;
-    height: 30px;
-    width:30px;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    background-image: url(../img/lupa.png);
-    background-color: transparent;
-    border: none;
-    background-size: 20px;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-.buscador input[type="submit"]:hover {
-    cursor: pointer;
+h4{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
 }
 
-@media (min-width:768px) {
-    .candidato,
-    .vacante {
-        display: flex;
-    }
-    .caja {
-        flex: 1;
-    }
-    .caja:first-of-type{
-        flex: 2;
-    }
-}
-.candidato,
-.vacante {
-    padding: 3rem 0;
-    border-bottom: 1px solid #272727;
-}
-.candidato,
-.vacante:last-of-type{
-    border:none;
-}
-.caja {
-    padding: .5rem 0;
-}
-.caja p {
-    color: #ffffff;
-}
-.contrato {
-    text-transform: capitalize;
-}
-.caja .puesto,
-.caja .etiqueta {
-    font-weight: 700;
-    color: #616065;
-    font-size: 2.6rem;
-    margin: 0;
-    text-align: left;
-}
-.caja .etiqueta {
-    margin:1rem 0 0 0;
-}
-.caja .nombre { 
-    font-size: 2.4rem; 
-    margin: .5rem 0; 
-    text-align: left;
-}
-.caja .btn {
-    text-align: center;
-}
-
-.centrar-vertical{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.centrar-horizontal {
-    display: flex;
-    justify-content: center;
-}
-
-.vacante-contenedor h2 {
-    color: #616065;
-    font-size: 2.4rem;
-}
-.contenido-superior {
-    margin-bottom: 6rem;
-}
-@media (min-width:768px){
-    .vacante-contenedor {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-    .vacante-contenedor main{
-        flex: 0 0 60%;
-    }
-    .vacante-contenedor aside {
-        flex: 0 0 calc(40% - 2rem);
-    }
-}
-.vacante-descripcion h1 {
-    line-height: 1.4;
-}
-.vacante-descripcion *{
-    color: white!important;
-    line-height: 2.2;
-}
-.skills {
-    color: white;
-}
-.skills li,
-.vacante-descripcion div  {
-    font-size: 1.8rem;
-    line-height: 2.4;
-}
-
-
-.enviar-datos h2 {
-    font-size: 4rem;
-    color: white;
-}
-.enviar-datos p {
-    color: white;
-    font-size: 1.8rem;
-}
-.enviar-datos form {
-
-}
-
-/** Iniciar Sesión **/
-.default-form {
-    max-width: 800px;
-    margin: 4rem  auto 0 auto; 
-}
-.default-form h3 {
-    color: #616065;
-    font-size: 2.4rem;
-    margin-bottom: 3rem;
-    text-transform: uppercase;
-    
-}
-.default-form .campo {
-    margin-bottom: 3rem;
-    display: flex;   
-}
-.default-form label {
-    padding-top: 1rem;
-    flex: 0 0 18rem;
-    font-size: 1.8rem;
-    color: white;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-.default-form input[type="email"],
-.default-form input[type="password"],
-.default-form input[type="text"],
-.default-form input[type="number"],
-.default-form input[type="file"],
-.default-form select,
-.default-form textarea  {
-    flex: 1;
-    height: 4.5rem;
-    padding: 1rem;
-    font-size: 1.8rem;
-    border-radius: 1rem;
-    border: none;
-} 
-
-.default-form input[type="file"] {
-    color: white;
-}
-trix-toolbar, 
-trix-editor {
-    background-color: white!important;
-}
-trix-toolbar {
-    padding: 1rem;
-}
-trix-editor {
-    font-size: 1.8rem;
-    min-height: 30rem!important;
-    padding: 2rem;
-}
-trix-editor h1, 
-trix-editor blockquote {
-    color: black;
-}
-trix-toolbar .trix-button-group {
-    margin-bottom: 0;
-}
-trix-toolbar .trix-button--icon-strike {
-    display: none;
-}
-.campo.descripcion {
-    display: block;
-}
-.campo.descripcion label {
-    display: block;
-    margin-bottom: 2rem;
-}
-.default-form input[type="submit"] {
-    margin-top: 2rem;
-}
-.default-form input[type="submit"]:hover {
-    cursor: pointer;
-}
-
-.default-form .acciones {
-    display: flex;
-    justify-content: space-between;
-}
-.default-form a {
-    color: #616065;
-    text-decoration: none;
-}
-
-.lista-conocimientos {
-    list-style: none;
-    padding: 0;    
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-.lista-conocimientos  li {
-    border: 2px solid #00C897;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: white;
-    flex: 0 0 calc( 50% - 1rem);
-    text-align: center;
-    border-radius: 1rem;
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.lista-conocimientos  li.activo {
-    background-color: #00C897;
-}
-.lista-conocimientos  li:hover {
-    cursor: pointer;
-}
-
-@media (min-width:480px) {
-    .lista-conocimientos li {
-        flex: 0 0 calc( 33% - 1rem);
-    }
-}
-@media (min-width:768px) {
-    .lista-conocimientos li {
-        flex: 0 0 calc( 25% - 1rem);
-    }
-}
-@media (min-width:992px) {
-    .lista-conocimientos li {
-        flex: 0 0 calc( 20% - 1rem);
-    }
-}
-
-/** Admin **/
-
-p.candidatos {
+p{
+    font-style: normal;
     font-weight: 400;
-    color: white;
-    display: block;
-    font-size: 1.8rem;
-    margin: 1rem 0 0 0;
-    text-align: left!important;
-    text-decoration: none;
-    color: #616065;
+    font-size: 18px;
+    line-height: 23px;
 }
-.admin-perfil {
-    width: 120px;
-    align-self: flex-start;
-    margin-right: 1rem;
-}
-.cerrar-sesion p, 
-.cerrar-sesion a {
-    margin:  0 2rem 0 0 ;
-    color: #888;
-}
-.cerrar-sesion {
-    margin-top: 2rem;
-    color: white;
-    display: flex;
-}
-.cerrar-sesion img {
-        width: 80px;
-}
-.botones {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    padding: 2rem 0 5rem 0;
-    margin-bottom: 5rem;
-}
-.botones a {
-    margin-right: 2rem;
-}
-.lista-candidatos p,
-.lista-vacantes p {
-    color: white;
-    text-align: center;
+.navbar{
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
-/** Alertas **/
-.swal2-popup {
-    width: 60rem!important;
-}
-.swal2-popup .swal2-title {
-    font-size: 3.4rem!important;
-}
-.swal2-content {
-    font-size: 2rem!important;
-}
-.swal2-popup .swal2-styled.swal2-cancel,
-.swal2-popup .swal2-styled.swal2-confirm {
-    font-size: 2rem!important;
+.nav-title{
+    font-weight: 900;
 }
 
-/** Flash Messages **/
-.alertas {
-    text-align: center;
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 65px;
-}
-.alerta {
-    padding: 1rem 3rem; 
-    color: white;
-    font-size: 2.2rem;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-top: .3rem;
-}
-.correcto {
-    background-color: #00C897;
-}
-.error {
-    background-color: #C80045;
-}
-.desaparecer {
-    opacity: 0;
+.navbar-collapse {
+    justify-content: end;
+  }
+  
+.nav-link{
+    font-weight: 500;
+    color: #191A23;
 }
 
-
-
-/** Biografia Vacante **/
-.info-reclutador h2 {
-    color: #616065;
-    font-size: 2.4rem;
+.nav-link:hover{
+    font-weight: 900;
 }
-.info-reclutador img {
-    max-width: 300px;
+
+footer{
+    padding-bottom: 50px;
+    padding-top: 50px;
+    background-color: var(--black);
+}
+
+.footer-basic {
+    position: absolute;
+    bottom: 0;
     width: 100%;
-}
-.datos-reclutador {
-    border-top: 3px solid #272727;
-    padding: 5rem 0;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 4rem;
-}
-.datos-reclutador p {
-    font-size: 2.4rem;
-    color: white;
-}
-@media (min-width:768px){
-    .enviar-datos {
-        flex: 0 0 calc(70% - 1rem);
-    }
-    .info-reclutador {
-        flex: 0 0 calc(30% - 1rem );
-    }
-}
-.enviar-datos h2 {
-    font-size: 4rem;
-    color: white;
-}
-.enviar-datos p {
-    color: white;
-    font-size: 1.8rem;
-}
+    height: 60px; 
+    padding:40px 0;
+    background-color:#ffffff;
+    color:#4b4c4d;
+  }
+  
+  .footer-basic ul {
+    padding:0;
+    list-style:none;
+    text-align:center;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:0;
+  }
+  
+  .footer-basic li {
+    padding:0 10px;
+  }
+  
+  .footer-basic ul a {
+    color:var(--grey);
+    text-decoration:none;
+  }
+
+  .footer-basic ul a:hover {
+    color:var(--green);
+    text-decoration:none;
+  }
+  
+  .footer-basic ul a:hover {
+    opacity:1;
+  }
+  
+  .footer-basic .social {
+    text-align:center;
+    padding-bottom:25px;
+  }
+  
+  .footer-basic .social > a {
+    font-size:24px;
+    width:40px;
+    height:40px;
+    line-height:40px;
+    display:inline-block;
+    text-align:center;
+    border-radius:50%;
+    border:1px solid #ccc;
+    margin:0 8px;
+    color:inherit;
+    opacity:0.75;
+  }
+  
+  .footer-basic .social > a:hover {
+    color: var(--green);
+    border:1px solid #B9FF66;
+  }
+  
+  .footer-basic .copyright {
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
+    color:var(--grey);
+    margin-bottom:0;
+  }
