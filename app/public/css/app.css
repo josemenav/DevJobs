@@ -1,0 +1,141 @@
+:root{
+    --black: #191A23;
+    --green: #B9FF66;
+    --grey: #F3F3F3;
+    --white: #FFFFFF;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+h1{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 77px;
+}
+
+h2{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 51px;
+}
+
+h3{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 38px;
+}
+
+h4{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+}
+.navbar{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.nav-title{
+    font-weight: 900;
+}
+
+.navbar-collapse {
+    justify-content: end;
+  }
+  
+.nav-link{
+    font-weight: 500;
+    color: #191A23;
+}
+
+.nav-link:hover{
+    font-weight: 900;
+}
+
+footer{
+    padding-bottom: 50px;
+    padding-top: 50px;
+    background-color: var(--black);
+}
+
+.footer-basic {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px; 
+    padding:40px 0;
+    background-color:#ffffff;
+    color:#4b4c4d;
+  }
+  
+  .footer-basic ul {
+    padding:0;
+    list-style:none;
+    text-align:center;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:0;
+  }
+  
+  .footer-basic li {
+    padding:0 10px;
+  }
+  
+  .footer-basic ul a {
+    color:var(--grey);
+    text-decoration:none;
+  }
+
+  .footer-basic ul a:hover {
+    color:var(--green);
+    text-decoration:none;
+  }
+  
+  .footer-basic ul a:hover {
+    opacity:1;
+  }
+  
+  .footer-basic .social {
+    text-align:center;
+    padding-bottom:25px;
+  }
+  
+  .footer-basic .social > a {
+    font-size:24px;
+    width:40px;
+    height:40px;
+    line-height:40px;
+    display:inline-block;
+    text-align:center;
+    border-radius:50%;
+    border:1px solid #ccc;
+    margin:0 8px;
+    color:inherit;
+    opacity:0.75;
+  }
+  
+  .footer-basic .social > a:hover {
+    color: var(--green);
+    border:1px solid #B9FF66;
+  }
+  
+  .footer-basic .copyright {
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
+    color:var(--grey);
+    margin-bottom:0;
+  }
