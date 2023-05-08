@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>DEVJOBS</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/css/app.css">
+    <script src="https://kit.fontawesome.com/71e7cb605f.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!--Quitar este header en el futuro-->
+        <header>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../views/index.html"><h2 class="nav-title">DEVJOBS</h2></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../views/index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <i class="mdi mdi-account" id="account"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    <main>
+        
+        <div class="container">
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title"><b>Cajero del Soriana</b></h4>
+                    <p class="card-text">Cosa cosa cosa cosa cosa cosa</p>
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                    <button class="btn btn-danger">Delete</button>
+                  </div>
+                </div><br>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title"><b>Cajero del Oxxo</b></h4>
+                        <p class="card-text">bla bla bla bla bla bla bla bla bla bla bla bla</p>
+                        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                        <button class="btn btn-danger">Delete</button>
+                    </div>
+                </div><br>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title"><b>Diseñador Web</b></h4>
+                    <p class="card-text">Cosa cosa cosa cosa cosa cosa</p>
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                    <button class="btn btn-danger">Delete</button>
+                  </div>
+                </div><br>
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title"><b>Biologo marino</b></h4>
+                    <p class="card-text">Cosa cosa cosa cosa cosa cosa</p>
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                    <button class="btn btn-danger">Delete</button>
+                  </div>
+                </div><br>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title"><b>Piloto</b></h4>
+                    <p class="card-text">Cosa cosa cosa cosa cosa cosa</p>
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                    <button class="btn btn-danger">Delete</button>
+                  </div>
+                </div><br>
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title"><b>Cocinero Crustáceo Cascarudo</b></h4>
+                    <p class="card-text">Cosa cosa cosa cosa cosa cosa</p>
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                    <button class="btn btn-danger">Delete</button>
+                  </div>
+                </div><br>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title"><b>Medico</b></h4>
+                    <p class="card-text">Cosa cosa cosa cosa cosa cosa</p>
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                    <button class="btn btn-danger">Delete</button>
+                  </div>
+                </div><br>
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title"><b>Maestro</b></h4>
+                    <p class="card-text">Cosa cosa cosa cosa cosa cosa</p>
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                    <button class="btn btn-danger">Delete</button>
+                  </div>
+                </div><br>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="editModalLabel">Edit :name </h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <!-- Add form elements for editing the content here -->
+                  <p>Edit the content :name</p>
+                    <div class="mb-3">
+                        <label for="titleInput" class="form-label">Title:</label>
+                        <input type="text" class="form-control" placeholder=":title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="descriptionInput" class="form-label">Description:</label>
+                        <input type="text" class="form-control" placeholder=":description">
+                    </div>
+                    <div class="mb-3">
+                        <label for="statusSelect" class="form-label">Status:</label>
+                        <select class="form-select" id="statusSelect">
+                          <option selected>Looking</option>
+                          <option value="1">closed</option>
+                          <option value="2">otherOptions</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Save changes</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+        <div class="d-flex justify-content-center align-items-center">
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal"><i class="mdi mdi-account-multiple-plus" id="account"></i>  Add job</button>
+        </div>
+
+        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="editModalLabel">Add Job</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <!-- Add form elements for editing the content here -->
+                    <div class="mb-3">
+                        <label for="titleInput" class="form-label">Title:</label>
+                        <input type="text" class="form-control" placeholder=":title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="descriptionInput" class="form-label">Description:</label>
+                        <input type="text" class="form-control" placeholder=":description">
+                    </div>
+                    <div class="mb-3">
+                        <label for="statusSelect" class="form-label">Status:</label>
+                        <select class="form-select" id="statusSelect">
+                          <option selected>Looking</option>
+                          <option value="1">closed</option>
+                          <option value="2">otherOptions</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Post Job</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+        </div>
+              
+  </main>
+  <div id="footer"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+  <script src="../controllers/footer.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.3.95/css/materialdesignicons.min.css">
+</body>
+</html>

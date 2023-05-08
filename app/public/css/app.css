@@ -139,3 +139,8 @@ footer{
     color:var(--grey);
     margin-bottom:0;
   }
+
+#account{
+  font-size: 24px;
+  cursor: pointer;
+}
