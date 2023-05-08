@@ -1,12 +1,48 @@
 :root{
     --black: #191A23;
     --green: #B9FF66;
-    --grey: #F3F3F3;
+    --grey: #9f9f9f;
     --white: #FFFFFF;
 }
 
 html {
     box-sizing: border-box;
+}
+
+.btn-warning{
+  background-color: var(--black) !important;
+  border-color: var(--black) !important;
+  color: var(--white) !important;
+}
+
+.btn-warning:hover{
+  background-color: var(--white) !important;
+  color: var(--black) !important;
+}
+
+.btn-danger{
+  background-color: var(--grey) !important;
+  color: var(--black) !important;
+  border-color: var(--grey) !important;
+}
+
+.btn-danger:hover{
+  background-color: var(--white) !important;
+  color: var(--grey) !important;
+}
+
+
+.btn-primary{
+  background-color: var(--green) !important;
+  border-color: var(--green) !important;
+  color: var(--black) !important;
+}
+
+.btn-primary:hover{
+  background-color: var(--white) !important;
+  border-color: var(--green) !important;
+  color: var(--green) !important;
+  font-weight: bold;
 }
 
 h1{
@@ -44,12 +80,15 @@ p{
     line-height: 23px;
 }
 .navbar{
-    margin-left: 50px;
-    margin-right: 50px;
+    padding-left: 180px;
+    padding-right: 250px;
+    margin-bottom: 50px;
+    background-color: var(--black);
 }
 
 .nav-title{
     font-weight: 900;
+    color: var(--green);
 }
 
 .navbar-collapse {
@@ -58,11 +97,12 @@ p{
   
 .nav-link{
     font-weight: 500;
-    color: #191A23;
+    color: var(--white);
 }
 
 .nav-link:hover{
     font-weight: 900;
+    color: var(--white);
 }
 
 footer{
@@ -72,12 +112,11 @@ footer{
 }
 
 .footer-basic {
-    position: absolute;
     bottom: 0;
+    margin-top: 0;
     width: 100%;
     height: 60px; 
     padding:40px 0;
-    background-color:#ffffff;
     color:#4b4c4d;
   }
   
@@ -143,4 +182,83 @@ footer{
 #account{
   font-size: 24px;
   cursor: pointer;
+}
+
+.banner{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.col.banner-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.up-button{
+  align-self: start;
+}
+
+.banner-1 h1{
+  font-weight: bold;
+}
+
+.login{
+  background-color: var(--green);
+}
+
+.image-login{
+  display: flex;
+  flex-direction: column;
+}
+
+.image-login img{
+  width: fit-content;
+}
+
+.login-img-1{
+  margin-right: 100px;
+  margin-bottom: 50px;
+}
+
+.login-img-2{
+  margin-bottom: 50px;
+  margin-left: 100px;
+}
+
+.login-form{
+  padding: 30px 50px 30px 50px;
+  background-color: #292A32;
+  border-radius: 20px;
+  color: var(--white);
+}
+
+.btn-link{
+  color: var(--black);
+}
+
+.btn-link:hover{
+  color: var(--green) !important;
+}
+
+.login-register{
+  background-color: #292A32;
+  border-color: var(--white);
+  color: var(--white);
+}
+
+
+
+.login-register:focus{
+  background-color: #292A32;
+  border-color: var(--green);
+  color: var(--white);
+}
+
+
+.sign-in:hover{
+  background-color: #292A32 !important;
+  border-color: var(--green) !important;
+  color: var(--green) !important;
+  font-weight: bold;
 }
