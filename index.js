@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 const express = require('express'); 
-const app = express(); 
 const path = require('path'); 
-const router = require('./app/routes/router')
+const router = require('./app/controllers/router.js')
 
-const port = 5000; 
+const app = express(); 
+app.use(express.json());
+//app.use(cors());
+const PORT = process.env.PORT || 5000;
 
-app.use('/', router()); 
 async function connect(){
     const mongoConection = "mongodb+srv://admin:admin@myapp.qtsgqot.mongodb.net/MyAppDB";
     let db = mongoose.connection;
@@ -19,5 +20,11 @@ async function connect(){
     await mongoose.connect(mongoConection, {useNewUrlParser: true});
 }
 
-connect()
-app.listen(port); 
+app.use('/', router); 
+
+connect();
+
+app.listen(PORT, () => {
+    console.log("App running on port " + PORT);
+})
+
