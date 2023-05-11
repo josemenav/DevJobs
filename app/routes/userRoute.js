@@ -3,20 +3,30 @@ const router = express.Router();
 const {createUser} = require('../controllers/userHandler.js');
 const {Jobs, Users} = require('../controllers/dbSchemas.js');
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt')
 
 // POST Crear Usuario nuevo
 router.post('/', (req, res) => {
+    //const user = {
+    //    email:"test@test.com",
+    //    name:"Pedrito",
+    //    username:"TestUN",
+    //    password:"123",
+    //    typeOfUser:"Applicant"
+    //}
 
-    //let usuario = {email:"test@test.com", name:"Pedrito", username:"TestUN", password:"123", typeOfUser:"Applicant"}
-    //createUser(usuario);
+    //user.password = bcrypt.hashSync(user.password, 10);
+    //console.log(user)
+    //console.log(bcrypt.compareSync("12", user.password))
 
+    //createUser(user);
 
     res.status(200).send("Hola");
 
 });
 
-// PUT Add Job al usuario
-router.put('/', async (req, res) => {
+// PUT Add Job al applicant
+router.put('/', async(req, res) => {
 
     const userId = req.query.userId;
     const jobId = req.query.jobId;
@@ -27,8 +37,17 @@ router.put('/', async (req, res) => {
 
 });
 
+//router.get('/', async(req, res) => {
+//
+//    const user = await Users.findById('645ceb60e33c28241c0f4df7')
+//
+//    console.log(bcrypt.compareSync('123', user.password))
+//    res.status(200);
+//
+//});
+
 // DELETE Borrar Usuario por ID
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', async(req, res) => {
 
     const usuario = req.params.id;
 

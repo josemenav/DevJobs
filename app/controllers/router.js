@@ -8,4 +8,8 @@ const usersRouter = require('../routes/userRoute.js');
 router.use('/jobs', jobsRouter);
 router.use('/users', usersRouter);
 
+router.get('/', (req, res) => res.sendFile(path.resolve(__dirname + "/../views/index.html")));
+router.get('/home', (req, res) => res.sendFile(path.resolve(__dirname + "/../views/index.html")));
+router.get('/shopping_cart', (req, res) => res.sendFile(path.resolve(__dirname + "/../views/shopping_cart.html")));
+
 module.exports = router;
