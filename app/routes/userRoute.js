@@ -15,6 +15,18 @@ router.post('/', (req, res) => {
 
 });
 
+// PUT Add Job al usuario
+router.put('/', async (req, res) => {
+
+    const userId = req.query.userId;
+    const jobId = req.query.jobId;
+
+    await Users.findByIdAndUpdate(userId, { $push: { appliedJobs: jobId } }, { new: true })
+
+    res.status(200).send("Usuario aplico a nuevo trabajo.");
+
+});
+
 // DELETE Borrar Usuario por ID
 router.delete('/:id', async (req, res) => {
 
