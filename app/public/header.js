@@ -1,5 +1,6 @@
 // Hace una petición al archivo header.html
-fetch("../views/header.html")
+console.log('llegue al header')
+fetch("../views/index.html")
   .then(response => {
     // Verifica si la respuesta de la petición es exitosa
     if (response.ok) {
