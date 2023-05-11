@@ -61,7 +61,7 @@ const userSchema = new mongoose.Schema({
     },
     typeOfUser: {
         type: String,
-        enum: ['Recruiting', 'Applicant'],
+        enum: ['Recruiter', 'Applicant'],
         required: true
     },
     appliedJobs: [{
