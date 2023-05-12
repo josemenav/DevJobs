@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const {createUser} = require('../controllers/userHandler.js');
 const {Jobs, Users} = require('../controllers/dbSchemas.js');
-const mongoose = require('mongoose');
 const bcrypt = require('bcrypt')
 
 router.get('/appliedJobs/:id', async(req, res) => { 
@@ -12,16 +11,39 @@ router.get('/appliedJobs/:id', async(req, res) => {
     for(const id of user.appliedJobs){
         jobIdsToSearch.push(id.toString())
     }
-    //console.log(jobIdsToSearch)
     const jobsFound = await Jobs.find({ _id: { $in: jobIdsToSearch}});
     console.log(jobsFound)
     res.status(200).send('llegue');
 });
 
+router.get('/login/', async(req, res) => { 
+    let user = req.body.user; // 
+    let password = req.body.password; //
+
+    user = user.toLowerCase();
+    password = password.toLowerCase();
+
+    const userExist = await Users.findOne({ $or: [ { email: user }, { username: user } ] });
+
+    if(userExist && bcrypt.compareSync(password, userExist.password)){
+        // User exists and password is correct
+        res.status(200).send('llegue');
+    }
+    else{
+        let errorMsg = '';
+        if(userExist){
+            errorMsg += 'Email or username doesn not exist';
+        }
+        else{
+            errorMsg += 'Password is incorrect';
+        }
+        res.status(400).send(errorMsg);
+    }
+});
+
 
 // POST Crear Usuario nuevo
 router.post('/', async(req, res) => {
-
 
     //const usuario = { 
         //email:"admin@recruiter.com", 

@@ -11,7 +11,7 @@ const jobSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['On Going', 'Canceled', 'Denied'],
+        enum: ['On Going', 'Canceled', 'Finished'],
         required: true
     },
     salary: {
