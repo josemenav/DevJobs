@@ -17,12 +17,12 @@ router.get('/appliedJobs/:id', async(req, res) => {
 });
 
 router.get('/login/', async(req, res) => { 
-    let user = req.body.user; // 
-    let password = req.body.password; //
+    let user = req.query.user; // 
+    let password = req.query.password; //
 
     user = user.toLowerCase();
     password = password.toLowerCase();
-
+    
     const userExist = await Users.findOne({ $or: [ { email: user }, { username: user } ] });
 
     if(userExist && bcrypt.compareSync(password, userExist.password)){
@@ -31,8 +31,8 @@ router.get('/login/', async(req, res) => {
     }
     else{
         let errorMsg = '';
-        if(userExist){
-            errorMsg += 'Email or username doesn not exist';
+        if(!userExist){
+            errorMsg += 'Email or username does not exist';
         }
         else{
             errorMsg += 'Password is incorrect';
@@ -45,20 +45,15 @@ router.get('/login/', async(req, res) => {
 // POST Crear Usuario nuevo
 router.post('/', async(req, res) => {
 
-    //const usuario = { 
-        //email:"admin@recruiter.com", 
-        //name:"adminRe", 
-        //username:"AdminRecruiter", 
-        //password:"123", 
-        //typeOfUser:"Recruiter" //Recruiter in other case
-    //}
-
+    const usuario = req.body
+    
     usuario.email = usuario.email.toLowerCase();
     usuario.username = usuario.username.toLowerCase();
     
     const emailExist = await Users.findOne({ email: usuario.email});
     const usernameExist = await Users.findOne({ username: usuario.username});
-
+    console.log(usuario)
+    
     if(emailExist || usernameExist) {
         let errorMsg = '';
         if (emailExist) {
