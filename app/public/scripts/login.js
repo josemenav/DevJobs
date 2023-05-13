@@ -17,7 +17,9 @@ function login(user, password){
             alert(xhr.responseText);
         }
         else{
-            sessionStorage.setItem('login', true);
+            sessionStorage.setItem('login', xhr.response);
+            const loginData = JSON.parse(sessionStorage.getItem('login'));
+            //console.log(loginData)
             window.location.href = "http://localhost:5000/home";
         }
     };

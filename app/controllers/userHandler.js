@@ -7,9 +7,9 @@ async function createUser({ email, name, username, password, typeOfUser }){
         username,
         password,
         typeOfUser,
-    })
-    await User.save()
-    console.log('Usuario guardado')
+    });
+    await User.save();
+    return User._id.toString();
 }
 
 exports.createUser = createUser;
