@@ -17,8 +17,8 @@ router.get('/appliedJobs/:id', async(req, res) => {
 });
 
 router.get('/login/', async(req, res) => { 
-    let user = req.query.user; // 
-    let password = req.query.password; //
+    let user = req.query.user; 
+    let password = req.query.password; 
 
     user = user.toLowerCase();
     password = password.toLowerCase();
@@ -26,8 +26,7 @@ router.get('/login/', async(req, res) => {
     const userExist = await Users.findOne({ $or: [ { email: user }, { username: user } ] });
 
     if(userExist && bcrypt.compareSync(password, userExist.password)){
-        // User exists and password is correct
-        res.status(200).send('llegue');
+        res.status(200).send(userExist);
     }
     else{
         let errorMsg = '';
@@ -52,7 +51,6 @@ router.post('/', async(req, res) => {
     
     const emailExist = await Users.findOne({ email: usuario.email});
     const usernameExist = await Users.findOne({ username: usuario.username});
-    console.log(usuario)
     
     if(emailExist || usernameExist) {
         let errorMsg = '';
@@ -66,8 +64,9 @@ router.post('/', async(req, res) => {
     }
     else{
         usuario.password = bcrypt.hashSync(usuario.password, 10);
-        createUser(usuario);
-        res.status(200).send("User Created Succesfully");
+        const userId = await createUser(usuario);
+        const user = await Users.findById(userId);
+        res.status(200).send(user);
     }
 });
 
