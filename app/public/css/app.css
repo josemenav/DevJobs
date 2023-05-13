@@ -262,3 +262,7 @@ footer{
   color: var(--green) !important;
   font-weight: bold;
 }
+
+.display-none{
+  display: none;
+}
