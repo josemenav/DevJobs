@@ -1,6 +1,10 @@
 var userLogged = sessionStorage.getItem('login'); 
 var userObj = JSON.parse(userLogged);
 
+const url = 'http://localhost:5000/';
+const jobs = 'jobs/';
+const createjobs = 'createJob';
+
 
 function addNewJob() {
     // Obtener los valores de los campos de entrada
@@ -27,8 +31,28 @@ function addNewJob() {
     jobData.author = userObj._id;
     jobData.status = "On Going";
 
-    console.log(jobData);
-
+    fetch(url+jobs+createjobs, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(jobData),
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Error en la solicitud');
+        }
+    })
+    .then(responseData => {
+        console.log('Respuesta del servidor:', responseData.message);
+        // Aquí puedes realizar acciones con la respuesta del servidor, si es necesario
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+    
     // Regresar a sus valores vacios
     document.getElementById("titleInput").value = "";
     document.getElementById("descriptionInput").value = "";

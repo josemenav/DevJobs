@@ -20,24 +20,10 @@ router.post('/createJob', async (req, res) => {
 
     const jobInfo = req.body;
 
-    const data = {}
+    const jobId = await createJob(jobInfo)
+    await Users.findByIdAndUpdate(jobInfo.author, { $push: { postedJobs: jobId } }, { new: true });
 
-    data.title = jobInfo.title;
-    data.description = jobInfo.description;
-    data.salary = jobInfo.salary;
-    data.shift = jobInfo.shift;
-    data.modality = jobInfo.modality;
-    data.company = jobInfo.company;
-    data.author = jobInfo.author;
-    data.status = 'On Going';
-
-    console.log(jobInfo)
-    console.log(data)
-
-    //const jobId = await createJob(data)
-    //await Users.findByIdAndUpdate(data.author, { $push: { postedJobs: jobId } }, { new: true });
-
-    res.status(200).send('Job created\n');
+    res.status(200).json({ message: 'Job created' });
 });
 
 
