@@ -116,6 +116,8 @@ function addNewJob() {
     shiftSelect.selectedIndex = 0;
     modalitySelect.selectedIndex = 0;
     document.getElementById("inputCompany").value = "";
+
+    getJobsByUser();
 };
 
 // Funcion boton complete job
@@ -123,22 +125,29 @@ function completeJobById(id){
 
     var respuesta = confirm("¿Deseas completar este trabajo?");
 
-    fetch(url+jobs+completejobs+'?id='+id, {method: 'PUT'})
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      // Manejar los datos recibidos
-      console.log(data);
-    })
-    .catch(error => {
-      // Manejar cualquier error ocurrido durante la solicitud
-      console.error('Error:', error);
-    });
+    if(respuesta == true){
+        fetch(url+jobs+completejobs+'?id='+id, {method: 'PUT'})
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Manejar los datos recibidos
+          console.log(data);
+        })
+        .catch(error => {
+          // Manejar cualquier error ocurrido durante la solicitud
+          console.error('Error:', error);
+        });
+    
+        getJobsByUser();
+    }
 
-    getJobsByUser();
 };
 
+// Funcion boton delete job
+function deleteJobById(id){
+
+};
