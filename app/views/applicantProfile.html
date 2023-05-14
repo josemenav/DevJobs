@@ -37,79 +37,39 @@
     </div>
     <main>
       <h1 style="text-align: center;"><b>Your Jobs Aplications</b></h1> 
-      <br>   
-        <div class="container">
-            <div class="row">
-              <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title"><b>Cajero del Oxxo</b></h4>
-                    <p class="card-text">bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                    <p class="card-text"><b>Status:</b> On Going</p>
-                    <p class="card-text"><b>Salary:</b> 15000$</p>
-                    <p class="card-text"><b>Shift:</b> day</p>
-                    <p class="card-text"><b>Modality:</b> Hybrid</p>
-                    <p class="card-text"><b>Company:</b> Meta</p>
-                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">Edit status</button>
-                  </div>
-                </div><br>
-              </div>
-              <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title"><b>Diseñador Web</b></h4>
-                    <p class="card-text">Cosa cosa cosa cosa cosa cosa</p>
-                    <p class="card-text"><b>Salary:</b> 15000$</p>
-                    <p class="card-text"><b>Shift:</b> day</p>
-                    <p class="card-text"><b>Modality:</b> Hybrid</p>
-                    <p class="card-text"><b>Company:</b> Meta</p>
-                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">Edit status</button>
-                  </div>
-                </div><br>
-              </div>
-              <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title"><b>Piloto</b></h4>
-                      <p class="card-text">Cosa cosa cosa cosa cosa cosa</p>
-                      <p class="card-text"><b>Salary:</b> 15000$</p>
-                      <p class="card-text"><b>Shift:</b> day</p>
-                      <p class="card-text"><b>Modality:</b> Hybrid</p>
-                      <p class="card-text"><b>Company:</b> Meta</p>
-                      <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">Edit status</button>
-                    </div>
-                  </div><br>
-                </div><br>
-              </div>
-              </div>
-              </div>
+      <br> 
+      
+      <div class="container">
+        <div class="row" id="jobCards">
+
+        </div>
+      </div>
+            
+
+
+      <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editModalLabel">Edit status of the job application</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- Add form elements for editing the content here -->
+                <div class="mb-3">
+                    <label for="statusSelect" class="form-label">Status:</label>
+                    <select class="form-select" id="statusSelect">
+                      <option value="1">On going</option>
+                      <option value="2">Canceled</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
-
-
-          <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="editModalLabel">Edit status of :name </h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <!-- Add form elements for editing the content here -->
-                    <div class="mb-3">
-                        <label for="statusSelect" class="form-label">Status:</label>
-                        <select class="form-select" id="statusSelect">
-                          <option value="1">On going</option>
-                          <option value="2">Canceled</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-success" data-bs-dismiss="modal">Save changes</button>
-                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
+        </div>
         </div>
       </div>  
   </main>
@@ -128,5 +88,6 @@
   <!-- <script src="../controllers/header.js"></script> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.3.95/css/materialdesignicons.min.css">
   <script src="/scripts/navBar.js"></script>
+  <script src="/scripts/applicant.js"></script>
 </body>
 </html>
