@@ -5,8 +5,15 @@ const { createJob } = require('../controllers/jobHandler.js');
 const mongoose = require('mongoose');
 
 // GET Jobs
-
 router.get('/', async (req, res) => {
+
+    const jobs = await Jobs.find();
+
+    res.status(200).json(jobs);
+});
+
+// GET On Going Jobs
+router.get('/ongoingJobs', async (req, res) => {
 
     const jobs = await Jobs.find({status: 'On Going'});
 
@@ -15,7 +22,6 @@ router.get('/', async (req, res) => {
 
 
 // POST Create new Job
-
 router.post('/createJob', async (req, res) => {
 
     const jobInfo = req.body;
@@ -28,7 +34,6 @@ router.post('/createJob', async (req, res) => {
 
 
 // PUT Edit Job
-
 router.put('/editJob/:id', async (req, res) => {
 
     //Falta ver como recibir los datos
@@ -37,9 +42,18 @@ router.put('/editJob/:id', async (req, res) => {
 
 });
 
+// PUT Complete status Job
+router.put('/completeJob', async(req, res) => {
+
+    const id = req.query.id
+
+    await Jobs.findByIdAndUpdate(id, {status: 'Finished'}, {new: true});
+
+    res.status(200).json({message: 'Status Complete'})
+});
+
 
 // DELETE Existing Job
-
 router.delete('/deleteJob/:id', async (req, res) => {
 
     const jobId = req.params.id;
