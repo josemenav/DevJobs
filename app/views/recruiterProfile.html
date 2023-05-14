@@ -10,6 +10,7 @@
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/app.css">
     <script src="https://kit.fontawesome.com/71e7cb605f.js" crossorigin="anonymous"></script>
+    <script src="/scripts/recruiter.js"></script>
 
 </head>
 
@@ -220,6 +221,8 @@
             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addModal"><i class="mdi mdi-account-multiple-plus" id="account"></i>  Add job</button>
         </div>
 
+
+        <!-- Modal Nuevo Trabajo -->
         <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -231,41 +234,42 @@
                   <!-- Add form elements for editing the content here -->
                   <div class="mb-3">
                     <label for="titleInput" class="form-label">Title:</label>
-                    <input type="text" class="form-control" placeholder=":title">
+                    <input type="text" class="form-control" placeholder="Title" id="titleInput">
                     </div>
                     <div class="mb-3">
                         <label for="descriptionInput" class="form-label">Description:</label>
-                        <input type="text" class="form-control" placeholder=":description">
+                        <input type="text" class="form-control" placeholder="Description" id="descriptionInput">
                     </div>
                     <div class="mb-3">
                       <label for="descriptionInput" class="form-label">Salary:</label>
-                      <input type="text" class="form-control" placeholder=":Salary">
+                      <input type="text" class="form-control" placeholder="Salary" id="salaryInput">
                     </div>
                     <div class="mb-3">
                       <label for="statusSelect" class="form-label">Shift:</label>
-                      <select class="form-select" id="statusShift">
-                        <option selected>Select one</option>
+                      <select class="form-select" id="statusShiftNewJob">
+                        <option value="" disabled>Select one</option>
                         <option value="1">Day</option>
                         <option value="2">Night</option>
                         <option value="3">Part Time</option>
                       </select>
-                    </div>
-                    <div class="mb-3">
+                      </div>
+                      <div class="mb-3">
                       <label for="statusSelect" class="form-label">Modality:</label>
-                      <select class="form-select" id="statusModality">
-                        <option selected>Select one</option>
+                      <select class="form-select" id="statusModalityNewJob">
+                        <option value="" disabled>Select one</option>
                         <option value="1">Hybrid</option>
                         <option value="2">Remote</option>
                         <option value="3">In Office</option>
                       </select>
+                      
                     </div>
                     <div class="mb-3">
                       <label for="descriptionInput" class="form-label">Company:</label>
-                      <input type="text" class="form-control" placeholder=":Company">
+                      <input type="text" class="form-control" placeholder="Company" id="inputCompany">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Post Job</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="addNewJob();">Post Job</button>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                 </div>
               </div>

@@ -8,29 +8,40 @@ const mongoose = require('mongoose');
 
 router.get('/', async (req, res) => {
 
-    const jobs = await Jobs.find({status: 'On Going'});    
+    const jobs = await Jobs.find({status: 'On Going'});
+
     res.status(200).send(jobs);
 });
 
-router.post('/createJob/:id', async (req, res) => {
 
-    const data = {
-        title: 'Cocinero', 
-        description: 'Cocinero michelin', 
-        salary: 15000, 
-        shift: 'Day', 
-        modality: 'In Office', 
-        company: 'McDonalds',  
-    }
+// POST Create new Job
 
-    data.author = req.params.id;
+router.post('/createJob', async (req, res) => {
+
+    const jobInfo = req.body;
+
+    const data = {}
+
+    data.title = jobInfo.title;
+    data.description = jobInfo.description;
+    data.salary = jobInfo.salary;
+    data.shift = jobInfo.shift;
+    data.modality = jobInfo.modality;
+    data.company = jobInfo.company;
+    data.author = jobInfo.author;
     data.status = 'On Going';
 
-    const jobId = await createJob(data)
-    await Users.findByIdAndUpdate(data.author, { $push: { postedJobs: jobId } }, { new: true });
+    console.log(jobInfo)
+    console.log(data)
+
+    //const jobId = await createJob(data)
+    //await Users.findByIdAndUpdate(data.author, { $push: { postedJobs: jobId } }, { new: true });
 
     res.status(200).send('Job created\n');
 });
+
+
+// PUT Edit Job
 
 router.put('/editJob/:id', async (req, res) => {
 
@@ -39,6 +50,9 @@ router.put('/editJob/:id', async (req, res) => {
     //await Users.findByIdAndUpdate(); y actualizar segun que datos fueron dados para no sobre escribir todo
 
 });
+
+
+// DELETE Existing Job
 
 router.delete('/deleteJob/:id', async (req, res) => {
 
