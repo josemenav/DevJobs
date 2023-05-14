@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
 
     const jobs = await Jobs.find({status: 'On Going'});
 
-    res.status(200).send(jobs);
+    res.status(200).json(jobs);
 });
 
 
