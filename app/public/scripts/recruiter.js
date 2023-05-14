@@ -4,13 +4,15 @@ var userObj = JSON.parse(userLogged);
 const url = 'http://localhost:5000/';
 const jobs = 'jobs/';
 const createjobs = 'createJob';
+const completejobs = 'completeJob';
 
 document.addEventListener('DOMContentLoaded', function() {
     getJobsByUser();
 });
 
+// Display Jobs
 function getJobsByUser(){
-    fetch(url+jobs, {method: 'GET'})
+    fetch('http://localhost:5000/jobs/ongoingJobs', {method: 'GET'})
     .then(res => res.json())
     .then(data => {
 
@@ -59,6 +61,7 @@ function getJobsByUser(){
     return 0;
 }
 
+// Funcion al boton add job
 function addNewJob() {
     // Obtener los valores de los campos de entrada
     var title = document.getElementById("titleInput").value;
@@ -113,5 +116,38 @@ function addNewJob() {
     shiftSelect.selectedIndex = 0;
     modalitySelect.selectedIndex = 0;
     document.getElementById("inputCompany").value = "";
+
+    getJobsByUser();
 };
-  
+
+// Funcion boton complete job
+function completeJobById(id){
+
+    var respuesta = confirm("¿Deseas completar este trabajo?");
+
+    if(respuesta == true){
+        fetch(url+jobs+completejobs+'?id='+id, {method: 'PUT'})
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Manejar los datos recibidos
+          console.log(data);
+        })
+        .catch(error => {
+          // Manejar cualquier error ocurrido durante la solicitud
+          console.error('Error:', error);
+        });
+    
+        getJobsByUser();
+    }
+
+};
+
+// Funcion boton delete job
+function deleteJobById(id){
+
+};

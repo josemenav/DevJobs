@@ -20,7 +20,7 @@ const jobSchema = new mongoose.Schema({
     },
     shift: {
         type: String,
-        enum: ['Day', 'Night', 'Part time'],
+        enum: ['Day', 'Night', 'Part Time'],
         required: true
     },
     modality: {
