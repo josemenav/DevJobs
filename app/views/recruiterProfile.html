@@ -45,40 +45,33 @@
         </div>
 
         <br>
+        <div id="modalContent">
           <!-- editJob modal -->
           <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="editModalLabel">Edit :name </h5>
+                  <h5 class="modal-title" id="editModalNombre"></h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <!-- Add form elements for editing the content here -->
-                  <p>Edit the content :name</p>
+                  <p>Edit the content</p>
                     <div class="mb-3">
                         <label for="titleInput" class="form-label">Title:</label>
-                        <input type="text" class="form-control" placeholder=":title">
+                        <input type="text" class="form-control" placeholder="Titulo" id="titleInputEdit">
                     </div>
                     <div class="mb-3">
                         <label for="descriptionInput" class="form-label">Description:</label>
-                        <input type="text" class="form-control" placeholder=":description">
-                    </div>
-                    <div class="mb-3">
-                        <label for="statusSelect" class="form-label">Status:</label>
-                        <select class="form-select" id="statusSelect">
-                          <option selected>On Going</option>
-                          <option value="1">Closed</option>
-                          <option value="2">Finished</option>
-                        </select>
+                        <input type="text" class="form-control" placeholder=":description" id="descriptionInputEdit">
                     </div>
                     <div class="mb-3">
                       <label for="descriptionInput" class="form-label">Salary:</label>
-                      <input type="text" class="form-control" placeholder=":Salary">
+                      <input type="text" class="form-control" placeholder=":Salary" id="salaryInputEdit">
                     </div>
                     <div class="mb-3">
-                      <label for="statusSelect" class="form-label">Shift:</label>
-                      <select class="form-select" id="statusShift">
+                      <label for="statusSelect" class="titleInputform-label">Shift:</label>
+                      <select class="form-select" id="statusShiftEdit">
                         <option selected>Select one</option>
                         <option value="1">Day</option>
                         <option value="2">Night</option>
@@ -87,7 +80,7 @@
                     </div>
                     <div class="mb-3">
                       <label for="statusSelect" class="form-label">Modality:</label>
-                      <select class="form-select" id="statusModality">
+                      <select class="form-select" id="statusModalityEdit">
                         <option selected>Select one</option>
                         <option value="1">Hybrid</option>
                         <option value="2">Remote</option>
@@ -96,7 +89,7 @@
                     </div>
                     <div class="mb-3">
                       <label for="descriptionInput" class="form-label">Company:</label>
-                      <input type="text" class="form-control" placeholder=":Company">
+                      <input type="text" class="form-control" id="companyInputEdit">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -106,6 +99,7 @@
               </div>
             </div>
         </div>
+      </div>
         
 
         <!-- boton modal nuevo trabajo -->
