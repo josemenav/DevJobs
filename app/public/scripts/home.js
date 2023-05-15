@@ -26,7 +26,7 @@ inputElement.addEventListener('input', function(event) {
 });
 
 function getJobs(title){
-  fetch('http://localhost:5000/jobs', {method: 'GET'})
+  fetch('http://localhost:5000/jobs/ongoingJobs', {method: 'GET'})
   .then(res => res.json())
   .then(data => {
 
