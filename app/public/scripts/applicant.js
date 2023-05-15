@@ -81,15 +81,18 @@ function editJobById(jobId){
 }
 
 function deleteApplication(jobId) {
-  fetch(`http://localhost:5000/applications/applicationById?userId=${userObj._id}&jobId=${jobId}`)
+  fetch(`http://localhost:5000/applications/applicationById?userId=${userObj._id}&jobId=${jobId}`, {method: 'GET'})
     .then(res => res.json())
     .then(data => {
-      console.log(data._id);
+      console.log('HolaMundo');
+      console.log(data);
       return fetch(`http://localhost:5000/applications/deleteApplication/${data._id}`, { method: 'DELETE' });
     })
     .then(response => {
       if (response.ok) {
         console.log('Application deleted successfully.');
+        getJobsByUser(); 
+        window.location.reload();
       } else {
         throw new Error('Error in the request.');
       }
@@ -97,6 +100,5 @@ function deleteApplication(jobId) {
     .catch(error => {
       console.error('Error:', error);
     });
-    getJobsByUser(); 
-    window.location.reload();
 }
+

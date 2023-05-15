@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 
 router.get('/applicationById', async (req, res) => {
+  console.log('HOLA MUNDO')
     const userId = new mongoose.Types.ObjectId(req.query.userId);
     const jobId = new mongoose.Types.ObjectId(req.query.jobId);
   
