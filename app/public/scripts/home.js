@@ -87,9 +87,43 @@ function applyJobById(jobId){
                     getJobs();
                     window.location.reload();
                 }).catch(error => console.error('Error: '+error))
+
+                const applicationData = {}
+                applicationData.email = emailValue; 
+                applicationData.name = nameValue; 
+                applicationData.experience = experienceValue; 
+                applicationData.message = messageValue; 
+                applicationData.userId = userObj._id; 
+                applicationData.jobId = jobId; 
+
+                fetch(`http://localhost:5000/applications/createApplication`,{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(applicationData),
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Error en la solicitud');
+                    }
+                })
+                .then(responseData => {
+                    console.log('Respuesta del servidor:', responseData.message);
+                    getJobs();
+                    // Aquí puedes realizar acciones con la respuesta del servidor, si es necesario
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
             })
         }).catch(error => console.error('Error: '+error))
     }else{
-        alert('You must be logged in to apply for a job'); 
+        const applyButton = document.querySelector('#applyModal .modal-footer .btn-primary');
+        applyButton.addEventListener('click', () => {
+            alert('You must be logged in to apply for a job'); 
+        })
     }
 }
