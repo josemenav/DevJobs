@@ -2,7 +2,6 @@ const url = 'http://localhost:5000/';
 const jobs = 'jobs/';
 
  if(sessionStorage.getItem("login")) {
-    console.log('HOLAAA')
     document.getElementById("randomButton").style.display = "none";
   }
 
