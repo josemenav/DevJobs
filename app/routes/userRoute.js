@@ -86,7 +86,6 @@ router.put('/removeJobApplicant/', async (req, res) => {
 
     const userId = req.query.userId;
     const jobId = req.query.jobId;
-
     await Users.findByIdAndUpdate(userId, { $pull: { appliedJobs: jobId } }, { new: true });
     await Jobs.findByIdAndUpdate(jobId, { $pull: { applicants: userId } }, { new: true });
 

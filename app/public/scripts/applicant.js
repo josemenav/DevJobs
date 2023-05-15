@@ -1,6 +1,5 @@
 var userLogged = sessionStorage.getItem('login'); 
 var userObj = JSON.parse(userLogged);
-console.log(userObj._id); 
 const url = 'http://localhost:5000/';
 const jobs = 'jobs/';
 
@@ -16,8 +15,6 @@ function getJobsByUser(){
     const jobsByUser = data.filter((object) => {
       return object.applicants && object.applicants.includes(userObj._id);
     });
-      console.log(data)
-      console.log(jobsByUser)
 
       let htmlToAdd = ``;
       let cardCount = 0;
@@ -57,4 +54,49 @@ function getJobsByUser(){
   }).catch(error => console.error('Error:', error));
 
   return 0;
+}
+
+function editJobById(jobId){
+  const edityButton = document.querySelector('#editModal .modal-footer .btn-primary');
+  edityButton.addEventListener('click', () => {
+    const statusSelect = document.querySelector('select[name="status"]');
+    const statusValue = statusSelect.value; 
+    if(statusValue == 2){
+      const urlToUse = `http://localhost:5000/jobs/jobById?id=${jobId}`;
+      fetch(urlToUse, { method: 'GET' })
+        .then(res => res.json())
+        .then(data => {
+          fetch(`http://localhost:5000/users/removeJobApplicant/?userId=${userObj._id}&jobId=${jobId}`, {method: 'PUT'})
+          .then(response => {
+            if (response.ok) {
+              deleteApplication(jobId); 
+            } else {
+                throw new Error('Error en la solicitud');
+            }
+          })
+        })
+    }
+  })
+  
+}
+
+function deleteApplication(jobId) {
+  fetch(`http://localhost:5000/applications/applicationById?userId=${userObj._id}&jobId=${jobId}`)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data._id);
+      return fetch(`http://localhost:5000/applications/deleteApplication/${data._id}`, { method: 'DELETE' });
+    })
+    .then(response => {
+      if (response.ok) {
+        console.log('Application deleted successfully.');
+      } else {
+        throw new Error('Error in the request.');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+    getJobsByUser(); 
+    window.location.reload();
 }
