@@ -5,12 +5,27 @@ document.addEventListener('DOMContentLoaded', function() {
     getJobs();
 });
 
-function getJobs(){
+let inputElement = document.querySelector('#input1');
+let timer;
+
+inputElement.addEventListener('input', function(event) {
+  clearTimeout(timer);
+  let currentValue = event.target.value;
+
+  timer = setTimeout(function() {
+    getJobs(currentValue);
+  }, 1000);
+});
+
+function getJobs(title){
   fetch('http://localhost:5000/jobs', {method: 'GET'})
   .then(res => res.json())
   .then(data => {
 
-    console.log(data)
+    if(title){
+        const regex = new RegExp(title, 'i'); 
+        data = data.filter(element => regex.test(element.title));
+    }
 
       let htmlToAdd = ``;
       let cardCount = 0;
