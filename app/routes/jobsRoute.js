@@ -5,41 +5,75 @@ const { createJob } = require('../controllers/jobHandler.js');
 const mongoose = require('mongoose');
 
 // GET Jobs
-
 router.get('/', async (req, res) => {
 
-    const jobs = await Jobs.find({status: 'On Going'});    
-    res.status(200).send(jobs);
+    const jobs = await Jobs.find();
+
+    res.status(200).json(jobs);
 });
 
-router.post('/createJob/:id', async (req, res) => {
+// GET On Going Jobs
+router.get('/ongoingJobs', async (req, res) => {
 
-    const data = {
-        title: 'Cocinero', 
-        description: 'Cocinero michelin', 
-        salary: 15000, 
-        shift: 'Day', 
-        modality: 'In Office', 
-        company: 'McDonalds',  
-    }
+    const jobs = await Jobs.find({status: 'On Going'});
 
-    data.author = req.params.id;
-    data.status = 'On Going';
-
-    const jobId = await createJob(data)
-    await Users.findByIdAndUpdate(data.author, { $push: { postedJobs: jobId } }, { new: true });
-
-    res.status(200).send('Job created\n');
+    res.status(200).json(jobs);
 });
 
-router.put('/editJob/:id', async (req, res) => {
+// GET JobById
+router.get('/jobById', async (req, res) => {
 
-    //Falta ver como recibir los datos
+    const id = req.query.id;
+    const job = await Jobs.findById(id);
 
-    //await Users.findByIdAndUpdate(); y actualizar segun que datos fueron dados para no sobre escribir todo
-
+    res.status(200).json(job);
 });
 
+
+// POST Create new Job
+router.post('/createJob', async (req, res) => {
+
+    const jobInfo = req.body;
+
+    const jobId = await createJob(jobInfo)
+    await Users.findByIdAndUpdate(jobInfo.author, { $push: { postedJobs: jobId } }, { new: true });
+
+    res.status(200).json({ message: 'Job created' });
+});
+
+
+// PUT Edit Job
+router.put('/editJob', async (req, res) => {
+
+    const job = req.body;
+    const id = req.query.id
+    await Jobs.findByIdAndUpdate(id, {title: job.title, description: job.description, salary: job.salary, shift: job.shift, modality: job.modality, company: job.company}, {new: true});
+
+    res.status(200).json({ message: 'Job updated' });
+});
+
+// PUT Complete status Job
+router.put('/completeJob', async(req, res) => {
+
+    const id = req.query.id
+
+    await Jobs.findByIdAndUpdate(id, {status: 'Finished'}, {new: true});
+
+    res.status(200).json({message: 'Status Complete'})
+});
+
+// PUT Canceled status Job
+router.put('/cancelJob', async(req, res) => {
+
+    const id = req.query.id
+
+    await Jobs.findByIdAndUpdate(id, {status: 'Canceled'}, {new: true});
+
+    res.status(200).json({message: 'Status Complete'})
+});
+
+
+// DELETE Existing Job
 router.delete('/deleteJob/:id', async (req, res) => {
 
     const jobId = req.params.id;

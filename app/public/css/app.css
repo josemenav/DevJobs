@@ -40,9 +40,8 @@ html {
 
 .btn-primary:hover{
   background-color: var(--white) !important;
-  border-color: var(--green) !important;
-  color: var(--green) !important;
-  font-weight: bold;
+  color: var(--black) !important;
+  border-color: var(--black) !important;
 }
 
 h1{
@@ -261,4 +260,21 @@ footer{
   border-color: var(--green) !important;
   color: var(--green) !important;
   font-weight: bold;
+}
+
+.display-none{
+  display: none;
+}
+
+.modal-content{
+  padding: 30px 50px 30px 50px;
+  background-color: #292A32;
+  border-radius: 20px;
+  color: var(--white);
+}
+
+.form-select{
+  background-color: #292A32;
+  border-radius: 20px;
+  color: var(--white);
 }

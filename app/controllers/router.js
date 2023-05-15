@@ -8,11 +8,14 @@ const usersRouter = require('../routes/userRoute.js');
 router.use('/jobs', jobsRouter);
 router.use('/users', usersRouter);
 
-router.use(express.static(path.resolve(__dirname + "/../public/")))
+router.use(express.static(path.resolve(__dirname+"/../public/")))
 router.get('/', (req, res) => res.sendFile(path.resolve(__dirname + "/../views/index.html")));
 router.get('/home', (req, res) => res.sendFile(path.resolve(__dirname + "/../views/index.html")));
 router.get('/sign_in', (req, res) => res.sendFile(path.resolve(__dirname + "/../views/login.html")));
 router.get('/register', (req, res) => res.sendFile(path.resolve(__dirname + "/../views/register.html")));
+router.get('/aplicant', (req, res) => res.sendFile(path.resolve(__dirname + "/../views/applicantProfile.html")));
+router.get('/recruiter', (req, res) => res.sendFile(path.resolve(__dirname + "/../views/recruiterProfile.html")));
+
 
 
 
