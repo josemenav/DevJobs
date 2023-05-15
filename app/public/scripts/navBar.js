@@ -2,7 +2,7 @@ userLogged = sessionStorage.getItem('login');
 userObj = JSON.parse(userLogged);
 
 addEventListener("DOMContentLoaded", () => {
-    signOut.addEventListener('click', (event)=>{
+        signOut.addEventListener('click', (event)=>{
         sessionStorage.removeItem('login'); 
     })
 });
