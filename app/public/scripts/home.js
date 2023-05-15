@@ -3,10 +3,10 @@ const jobs = 'jobs/';
 
 const loginData = sessionStorage.getItem('login');
 const loginObject = JSON.parse(loginData);
-const idUser = loginObject._id;
+const idUser = loginObject?._id;
 
 if(sessionStorage.getItem("login")) {
-document.getElementById("randomButton").style.display = "none";
+    document.getElementById("randomButton").style.display = "none";
 }
 
 document.addEventListener('DOMContentLoaded', function() {

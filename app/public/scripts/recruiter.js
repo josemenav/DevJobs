@@ -154,7 +154,7 @@ function editJobById(id) {
         modalitySelect.value = job.modality;
         companyInput.value = job.company;
 
-              // Establecer la opción seleccionada en el elemento "Shift" basándose en el texto
+            // Establecer la opción seleccionada en el elemento "Shift" basándose en el texto
       for (let i = 0; i < shiftSelect.options.length; i++) {
         if (shiftSelect.options[i].text === job.shift) {
           shiftSelect.options[i].selected = true;
@@ -186,6 +186,11 @@ function editJobById(id) {
             updatedJob.shift = updatedShift;
             updatedJob.modality = updatedModality;
             updatedJob.company = updatedCompany;
+
+            if(!parseInt(updatedJob.salary)){
+              alert('Please insert a valid salary');
+              return
+            }
 
             console.log(updatedJob)
 
