@@ -10,6 +10,7 @@ function getJobs(){
   .then(res => res.json())
   .then(data => {
 
+    console.log(data)
 
       let htmlToAdd = ``;
       let cardCount = 0;
