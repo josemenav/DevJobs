@@ -103,6 +103,7 @@ function addNewJob() {
     })
     .then(responseData => {
         console.log('Respuesta del servidor:', responseData.message);
+        getJobsByUser();
         // Aquí puedes realizar acciones con la respuesta del servidor, si es necesario
     })
     .catch(error => {
@@ -120,6 +121,100 @@ function addNewJob() {
     getJobsByUser();
 };
 
+// Funcion al boton edit job
+function editJobById(id) {
+    const urlToUse = `http://localhost:5000/jobs/jobById?id=${id}`;
+  
+    fetch(urlToUse, { method: 'GET' })
+      .then(res => res.json())
+      .then(data => {
+        const job = data; // Supongamos que el objeto recibido se llama "job"
+        const saveChangesButton = document.querySelector('#editModal .modal-footer .btn-success');
+  
+        // Obtener los elementos del modal
+        const modalTitle = document.getElementById('editModalNombre');
+        const titleInput = document.getElementById('titleInputEdit');
+        const descriptionInput = document.getElementById('descriptionInputEdit');
+        const salaryInput = document.getElementById('salaryInputEdit');
+        const shiftSelect = document.getElementById('statusShiftEdit');
+        const modalitySelect = document.getElementById('statusModalityEdit');
+        const companyInput = document.getElementById('companyInputEdit');
+  
+        // Asignar los valores del objeto "job" a los elementos del modal
+        modalTitle.textContent = job.title;
+        titleInput.value = job.title;
+        descriptionInput.value = job.description;
+        salaryInput.value = job.salary;
+        shiftSelect.value = job.shift;
+        modalitySelect.value = job.modality;
+        companyInput.value = job.company;
+
+              // Establecer la opción seleccionada en el elemento "Shift" basándose en el texto
+      for (let i = 0; i < shiftSelect.options.length; i++) {
+        if (shiftSelect.options[i].text === job.shift) {
+          shiftSelect.options[i].selected = true;
+          break;
+        }
+      }
+
+      // Establecer la opción seleccionada en el elemento "Modality" basándose en el texto
+      for (let i = 0; i < modalitySelect.options.length; i++) {
+        if (modalitySelect.options[i].text === job.modality) {
+          modalitySelect.options[i].selected = true;
+          break;
+        }
+      }
+
+        saveChangesButton.addEventListener('click', () => {
+            // Obtener los valores actualizados del modal
+            const updatedTitle = titleInput.value;
+            const updatedDescription = descriptionInput.value;
+            const updatedSalary = salaryInput.value;
+            const updatedShift = shiftSelect.selectedOptions[0].textContent;
+            const updatedModality = modalitySelect.selectedOptions[0].textContent;
+            const updatedCompany = companyInput.value;
+    
+            var updatedJob = {}
+            updatedJob.title = updatedTitle;
+            updatedJob.description = updatedDescription;
+            updatedJob.salary = updatedSalary;
+            updatedJob.shift = updatedShift;
+            updatedJob.modality = updatedModality;
+            updatedJob.company = updatedCompany;
+
+            console.log(updatedJob)
+
+            fetch(`http://localhost:5000/jobs/editJob?id=${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedJob),
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Error en la solicitud');
+                }
+            })
+            .then(responseData => {
+                console.log('Respuesta del servidor:', responseData.message);
+                getJobsByUser();
+                window.location.reload();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+          });
+
+
+      })
+      .catch(error => console.error('Error:', error));
+
+}
+
 // Funcion boton complete job
 function completeJobById(id){
 
@@ -136,6 +231,7 @@ function completeJobById(id){
         .then(data => {
           // Manejar los datos recibidos
           console.log(data);
+          getJobsByUser();
         })
         .catch(error => {
           // Manejar cualquier error ocurrido durante la solicitud
@@ -149,5 +245,26 @@ function completeJobById(id){
 
 // Funcion boton delete job
 function deleteJobById(id){
+    var respuesta = confirm("¿Deseas eliminar este trabajo?");
 
+    if(respuesta == true){
+        fetch('http://localhost:5000/jobs/cancelJob?id='+id, {method: 'PUT'})
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Manejar los datos recibidos
+          console.log(data);
+          getJobsByUser();
+        })
+        .catch(error => {
+          // Manejar cualquier error ocurrido durante la solicitud
+          console.error('Error:', error);
+        });
+    
+        getJobsByUser();
+    }
 };
