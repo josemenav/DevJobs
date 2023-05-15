@@ -1,9 +1,13 @@
 const url = 'http://localhost:5000/';
 const jobs = 'jobs/';
 
- if(sessionStorage.getItem("login")) {
-    document.getElementById("randomButton").style.display = "none";
-  }
+const loginData = sessionStorage.getItem('login');
+const loginObject = JSON.parse(loginData);
+const idUser = loginObject._id;
+
+if(sessionStorage.getItem("login")) {
+document.getElementById("randomButton").style.display = "none";
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     getJobs();
@@ -30,6 +34,7 @@ function getJobs(title){
         const regex = new RegExp(title, 'i'); 
         data = data.filter(element => regex.test(element.title));
     }
+    data = data.filter(obj => !obj.applicants.includes(idUser));
 
       let htmlToAdd = ``;
       let cardCount = 0;
@@ -115,6 +120,8 @@ function applyJobById(jobId){
                 applicationData.message = messageValue; 
                 applicationData.userId = userObj._id; 
                 applicationData.jobId = jobId; 
+
+                inputElement.value = '';
 
                 fetch(`http://localhost:5000/applications/createApplication`,{
                     method: 'POST',

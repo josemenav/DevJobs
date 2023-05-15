@@ -37,9 +37,9 @@ function getJobsByUser(){
                                 <p class="card-text"><b>Shift:</b> ${jobsByUser[i].shift}</p>
                                 <p class="card-text"><b>Modality:</b> ${jobsByUser[i].modality}</p>
                                 <p class="card-text"><b>Company:</b> ${jobsByUser[i].company}</p>
-                                <button class="btn btn-success" onclick="completeJobById('${jobsByUser[i]._id}')">Complete</button>
+                                <button class="btn btn-success" onclick="completeJobById('${jobsByUser[i]._id}')"><i class="mdi mdi-check-bold" id="check-bold"></i>Complete</button>
                                 <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal" onclick="editJobById('${jobsByUser[i]._id}')">Edit</button>
-                                <button class="btn btn-danger" onclick="deleteJobById('${jobsByUser[i]._id}')">Delete</button>
+                                <button class="btn btn-danger" onclick="deleteJobById('${jobsByUser[i]._id}')"><i class="mdi mdi-trash-can" id="trash-can"></i>Delete</button>
                               </div>
                             </div>
                           </div>`;
@@ -86,6 +86,11 @@ function addNewJob() {
     jobData.company = company;
     jobData.author = userObj._id;
     jobData.status = "On Going";
+
+    if(!parseInt(jobData.salary)){
+      alert('Please insert a number in salary')
+      return
+    }
 
     fetch(url+jobs+createjobs, {
         method: 'POST',

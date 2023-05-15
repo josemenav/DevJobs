@@ -183,6 +183,16 @@ footer{
   cursor: pointer;
 }
 
+#trash-can{
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#check-bold{
+  font-size: 16px;
+  cursor: pointer;
+}
+
 .banner{
   margin-top: 50px;
   margin-bottom: 50px;
