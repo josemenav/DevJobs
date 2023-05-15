@@ -74,10 +74,31 @@ const userSchema = new mongoose.Schema({
     }],
 });
 
+const applicationSchema = new mongoose.Schema({
+    email: {
+        type: String,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    experience: {
+        type:String, 
+        required: true
+    },
+    message: {
+        type: String,
+        required: false
+    }
+});
+
 const Jobs = mongoose.model('Devjobs-Jobs', jobSchema);
 const Users = mongoose.model('Devjobs-Users', userSchema);
+const Applications = mongoose.model('Devjobs-Applications', applicationSchema);
 
 module.exports = {
     Jobs: Jobs,
     Users: Users,
+    Applications: Applications,
 }

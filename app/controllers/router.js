@@ -4,9 +4,11 @@ const router = express.Router();
 
 const jobsRouter = require('../routes/jobsRoute.js');
 const usersRouter = require('../routes/userRoute.js');
+const applicationsRouter = require('../routes/applicationsRoute.js')
 
 router.use('/jobs', jobsRouter);
 router.use('/users', usersRouter);
+router.use('/applications', applicationsRouter);
 
 router.use(express.static(path.resolve(__dirname+"/../public/")))
 router.get('/', (req, res) => res.sendFile(path.resolve(__dirname + "/../views/index.html")));

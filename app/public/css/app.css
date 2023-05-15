@@ -278,3 +278,15 @@ footer{
   border-radius: 20px;
   color: var(--white);
 }
+
+.form-black{
+  background-color: #292A32;
+  border-radius: 20px;
+  color: var(--white);
+}
+
+.form-black:focus{
+  background-color: #292A32;
+  border-color: var(--green);
+  color: var(--white);
+}
