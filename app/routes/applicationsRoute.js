@@ -2,21 +2,23 @@ const express = require('express');
 const router = express.Router();
 const {createApplication} = require('../controllers/applicationHandler.js');
 const {Jobs, Users, Applications} = require('../controllers/dbSchemas.js');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 
 router.get('/applicationById', async (req, res) => {
-    const userId = req.query.userId;
-    const jobId = req.query.jobId;
+    const userId = new mongoose.Types.ObjectId(req.query.userId);
+    const jobId = new mongoose.Types.ObjectId(req.query.jobId);
   
-    const application = await Applications.findOne({ userId, jobId });
+    const application = await Applications.findOne({ jobId: jobId, userId: userId});
   
     if (!application) {
       res.status(404).json({ error: 'Application not found' });
       return;
     }
-  
-    res.status(200).json(application);
-  });
+    else{
+      res.status(200).json(application);
+    }
+});
   
 
 router.post('/createApplication', async (req, res) => {
