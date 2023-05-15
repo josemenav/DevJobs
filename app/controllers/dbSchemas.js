@@ -90,6 +90,14 @@ const applicationSchema = new mongoose.Schema({
     message: {
         type: String,
         required: false
+    },    
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true
+    },
+    jobId: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true
     }
 });
 
