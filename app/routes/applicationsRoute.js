@@ -6,13 +6,14 @@ const bcrypt = require('bcrypt')
 
 router.post('/createApplication', async (req, res) => {
     const applicationInfo = req.body;
-    const applicationId = await createApplication(applicationInfo)
+    console.log(applicationInfo);
+    await createApplication(applicationInfo)
     res.status(200).json({ message: 'Application created' });
 });
 
 router.delete('/deleteApplication/:id', async (req, res) => {
     const applicationId = req.params.id;
-    const applicationToDelete = await Applications.findById(applicationId);
+    await Applications.findById(applicationId);
     await Applications.findByIdAndDelete(applicationId)
     res.status(200).send('Application Deleted Sucessfully');
 });
